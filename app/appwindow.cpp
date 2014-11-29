@@ -21,4 +21,5 @@ void AppWindow::runAppPackage(QString appPackage)
     appReader->readPackage(appPackage);
 
     // Pass the tmp location and render the extracted package
+    appView->setAppRoot(appReader->appRoot());
 }

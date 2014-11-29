@@ -47,6 +47,11 @@ void AppReader::readPackage(QString appPackage)
     zip.close();
 }
 
+QString AppReader::appRoot()
+{
+    return QDir(tempDir->path()).absoluteFilePath("index.html");
+}
+
 void AppReader::cleanUp()
 {
     tempDir->remove();

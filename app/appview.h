@@ -10,6 +10,8 @@ class AppView : public QWebView
 public:
     explicit AppView(QWidget *parent = 0);
 
+    void setAppRoot(QString appRoot);
+
 signals:
 
 public slots:

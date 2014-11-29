@@ -13,6 +13,8 @@ public:
 
     void readPackage(QString appPackage);
 
+    QString appRoot();
+
 private:
     QTemporaryDir* tempDir;
 
