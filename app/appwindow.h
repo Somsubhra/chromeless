@@ -6,6 +6,7 @@
 
 // Other includes
 #include "appview.h"
+#include "appreader.h"
 
 class AppWindow : public QMainWindow
 {
@@ -13,9 +14,11 @@ class AppWindow : public QMainWindow
 public:
     explicit AppWindow(QWidget *parent = 0);
 
+    void runAppPackage(QString appPackage);
 
 private:
     AppView* appView;
+    AppReader* appReader;
 
 signals:
 

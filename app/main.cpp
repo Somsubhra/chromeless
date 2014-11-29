@@ -22,6 +22,7 @@ int main(int argc, char** argv) {
         // Run the application package
         case 2:
             appWindow.show();
+            appWindow.runAppPackage(argv[1]);
             break;
 
         // Other options

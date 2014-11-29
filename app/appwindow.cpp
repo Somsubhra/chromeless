@@ -7,6 +7,16 @@ AppWindow::AppWindow(QWidget *parent) :
     this->setWindowState(Qt::WindowMaximized);
     this->setWindowTitle(tr("Application Window"));
 
+    appReader = new AppReader();
+
     appView = new AppView(this);
     this->setCentralWidget(appView);
+}
+
+void AppWindow::runAppPackage(QString appPackage)
+{
+    // Extract the app package in a tmp location
+    appReader->readPackage(appPackage);
+
+    // Pass the tmp location and render the extracted package
 }

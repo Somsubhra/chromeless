@@ -3,9 +3,10 @@
 
 class AppReader
 {
-    Q_OBJECT
 public:
-    AppReader(QString appPath);
+    AppReader();
+
+    void readPackage(QString appPackage);
 };
 
 #endif // APPREADER_H
