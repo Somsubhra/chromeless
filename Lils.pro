@@ -1,13 +1,11 @@
-QT += widgets \
-    webkitwidgets
+TEMPLATE = subdirs
 
-SOURCES += \
-    src/main.cpp \
-    src/controlpanel.cpp \
-    src/appwindow.cpp \
-    src/appview.cpp
+zlib.subdir = third-party/zlib
 
-HEADERS += \
-    src/controlpanel.h \
-    src/appwindow.h \
-    src/appview.h
+quazip.subdir = third-party/quazip
+quazip.depends = zlib
+
+app.subdir = app
+app.depends = quazip
+
+SUBDIRS = app quazip zlib
