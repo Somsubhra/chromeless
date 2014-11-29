@@ -11,6 +11,7 @@
 
 AppReader::AppReader()
 {
+    tempDir = new QTemporaryDir();
 }
 
 void AppReader::readPackage(QString appPackage)
@@ -29,4 +30,9 @@ void AppReader::readPackage(QString appPackage)
     }
 
     zip.close();
+}
+
+void AppReader::cleanUp()
+{
+    tempDir->remove();
 }

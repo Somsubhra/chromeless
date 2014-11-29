@@ -11,6 +11,8 @@ AppWindow::AppWindow(QWidget *parent) :
 
     appView = new AppView(this);
     this->setCentralWidget(appView);
+
+    connect(this, SIGNAL(destroyed()), appReader, SLOT(cleanUp()));
 }
 
 void AppWindow::runAppPackage(QString appPackage)
