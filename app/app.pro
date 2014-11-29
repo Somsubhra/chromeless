@@ -9,12 +9,14 @@ SOURCES += \
     main.cpp \
     controlpanel.cpp \
     appwindow.cpp \
-    appview.cpp
+    appview.cpp \
+    appreader.cpp
 
 HEADERS += \
     controlpanel.h \
     appwindow.h \
-    appview.h
+    appview.h \
+    appreader.h
 
 # --- QuaZip ---
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../third-party/quazip/release/ -lquazip
