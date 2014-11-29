@@ -1,3 +1,5 @@
+! include( ../common.pri ) { error( Could not find the common.pri file! ) }
+
 QT += widgets \
     webkitwidgets
 
