@@ -1,5 +1,4 @@
 // Qt includes
-#include <QDebug>
 #include <QDir>
 
 // Third party includes
@@ -22,10 +21,26 @@ void AppReader::readPackage(QString appPackage)
 
     QuaZipFile file(&zip);
 
+    QDir parentDir = QDir(tempDir->path());
+
+    // Extract the zip file in a temporary directory
     for(bool f = zip.goToFirstFile(); f; f = zip.goToNextFile()) {
         file.open(QIODevice::ReadOnly);
-        qDebug() << zip.getCurrentFileName();
-        qDebug() << file.readAll();
+
+        QString newFilePath = parentDir.absoluteFilePath(zip.getCurrentFileName());
+
+        QFile newFile(newFilePath);
+        QFileInfo newFileInfo(newFile);
+
+        newFile.open(QIODevice::WriteOnly);
+
+        // Make sure that the file path exists
+        parentDir.mkpath(newFileInfo.path());
+
+        newFile.write(file.readAll());
+
+        newFile.close();
+
         file.close();
     }
 
