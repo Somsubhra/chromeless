@@ -1,6 +1,7 @@
 #ifndef CONTROLPANEL_H
 #define CONTROLPANEL_H
 
+// Qt includes
 #include <QMainWindow>
 
 class ControlPanel : public QMainWindow

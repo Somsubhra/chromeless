@@ -1,3 +1,4 @@
+// Other includes
 #include "controlpanel.h"
 
 ControlPanel::ControlPanel(QWidget *parent) :
