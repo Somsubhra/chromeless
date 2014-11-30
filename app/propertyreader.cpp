@@ -14,8 +14,6 @@ PropertyReader::PropertyReader(QObject *parent) :
     _isAppDescSet = false;
     _isAuthorNameSet = false;
     _isAuthorEmailSet = false;
-    _isWinHeightSet = false;
-    _isWinWidthSet = false;
     _isWinMaxWidthSet = false;
     _isWinMaxHeightSet = false;
     _isWinMinWidthSet = false;
@@ -75,16 +73,6 @@ void PropertyReader::readProperties(QString propFile)
     // Window properties
     if(jObj.contains("window")) {
         QJsonObject winObj = jObj["window"].toObject();
-
-        if(winObj.contains("width")) {
-            _winWidth = (int)winObj["width"].toDouble();
-            _isWinWidthSet = true;
-        }
-
-        if(winObj.contains("height")) {
-            _winHeight = (int)winObj["height"].toDouble();
-            _isWinHeightSet = true;
-        }
 
         if(winObj.contains("maxWidth")) {
             _winMaxWidth = (int)winObj["maxWidth"].toDouble();
@@ -155,16 +143,6 @@ QString PropertyReader::authorEmail()
     return _authorEmail;
 }
 
-int PropertyReader::windowHeight()
-{
-    return _winHeight;
-}
-
-int PropertyReader::windowWidth()
-{
-    return _winWidth;
-}
-
 int PropertyReader::windowMaxWidth()
 {
     return _winMaxWidth;
@@ -228,16 +206,6 @@ bool PropertyReader::isAuthorNameSet()
 bool PropertyReader::isAuthorEmailSet()
 {
     return _isAuthorEmailSet;
-}
-
-bool PropertyReader::isWindowHeightSet()
-{
-    return _isWinHeightSet;
-}
-
-bool PropertyReader::isWindowWidthSet()
-{
-    return _isWinWidthSet;
 }
 
 bool PropertyReader::isWindowMaxHeightSet()

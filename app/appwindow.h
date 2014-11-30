@@ -18,6 +18,9 @@ public:
     void runAppPackage(QString appPackage);
 
 private:
+    void applyAppProperties();
+
+private:
     AppView* appView;
     AppReader* appReader;
     PropertyReader* propReader;

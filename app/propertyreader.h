@@ -19,8 +19,6 @@ public:
     QString authorName();
     QString authorEmail();
 
-    int windowHeight();
-    int windowWidth();
     int windowMaxWidth();
     int windowMaxHeight();
     int windowMinWidth();
@@ -36,8 +34,6 @@ public:
     bool isAppDescSet();
     bool isAuthorNameSet();
     bool isAuthorEmailSet();
-    bool isWindowHeightSet();
-    bool isWindowWidthSet();
     bool isWindowMaxWidthSet();
     bool isWindowMaxHeightSet();
     bool isWindowMinWidthSet();
@@ -55,8 +51,6 @@ private:
     QString _authorName;
     QString _authorEmail;
 
-    int _winHeight;
-    int _winWidth;
     int _winMaxWidth;
     int _winMaxHeight;
     int _winMinWidth;
@@ -72,8 +66,6 @@ private:
     bool _isAppDescSet;
     bool _isAuthorNameSet;
     bool _isAuthorEmailSet;
-    bool _isWinHeightSet;
-    bool _isWinWidthSet;
     bool _isWinMaxWidthSet;
     bool _isWinMaxHeightSet;
     bool _isWinMinWidthSet;
