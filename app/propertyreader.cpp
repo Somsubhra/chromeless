@@ -20,7 +20,6 @@ PropertyReader::PropertyReader(QObject *parent) :
     _isWinMinHeightSet = false;
     _isWinFixedWidthSet = false;
     _isWinFixedHeightSet = false;
-    _isWinShowTitleBarSet = false;
     _isWinMaximizedSet = false;
 }
 
@@ -104,11 +103,6 @@ void PropertyReader::readProperties(QString propFile)
             _isWinFixedHeightSet = true;
         }
 
-        if(winObj.contains("showTitleBar")) {
-            _winShowTitleBar = winObj["showTitleBar"].toBool();
-            _isWinShowTitleBarSet = true;
-        }
-
         if(winObj.contains("maximized")) {
             _winMaximized = winObj["maximized"].toBool();
             _isWinMaximizedSet = true;
@@ -173,11 +167,6 @@ int PropertyReader::windowFixedHeight()
     return _winFixedHeight;
 }
 
-bool PropertyReader::windowShowTitleBar()
-{
-    return _winShowTitleBar;
-}
-
 bool PropertyReader::windowMaximized()
 {
     return _winMaximized;
@@ -236,11 +225,6 @@ bool PropertyReader::isWindowFixedHeightSet()
 bool PropertyReader::isWindowFixedWidthSet()
 {
     return _isWinFixedWidthSet;
-}
-
-bool PropertyReader::isWindowShowTitleBarSet()
-{
-    return _isWinShowTitleBarSet;
 }
 
 bool PropertyReader::isWindowMaximizedSet()

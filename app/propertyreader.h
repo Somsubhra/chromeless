@@ -25,7 +25,6 @@ public:
     int windowMinHeight();
     int windowFixedWidth();
     int windowFixedHeight();
-    bool windowShowTitleBar();
     bool windowMaximized();
 
     // Getters for the flags
@@ -40,7 +39,6 @@ public:
     bool isWindowMinHeightSet();
     bool isWindowFixedWidthSet();
     bool isWindowFixedHeightSet();
-    bool isWindowShowTitleBarSet();
     bool isWindowMaximizedSet();
 
 private:
@@ -57,7 +55,6 @@ private:
     int _winMinHeight;
     int _winFixedWidth;
     int _winFixedHeight;
-    bool _winShowTitleBar;
     bool _winMaximized;
 
     // Set/Unset Flags
@@ -72,7 +69,6 @@ private:
     bool _isWinMinHeightSet;
     bool _isWinFixedWidthSet;
     bool _isWinFixedHeightSet;
-    bool _isWinShowTitleBarSet;
     bool _isWinMaximizedSet;
 
 signals:
