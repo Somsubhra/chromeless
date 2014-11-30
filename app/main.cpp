@@ -1,14 +1,14 @@
 // Qt includes
-#include <QApplication>
 #include <QDebug>
 
 // Other includes
+#include "application.h"
 #include "controlpanel.h"
 #include "appwindow.h"
 
 int main(int argc, char** argv) {
 
-    QApplication app(argc, argv);
+    Application app(argc, argv);
 
     ControlPanel panel;
     AppWindow appWindow;
