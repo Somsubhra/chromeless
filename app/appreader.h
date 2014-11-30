@@ -9,7 +9,7 @@ class AppReader : public QObject
 {
     Q_OBJECT
 public:
-    AppReader();
+    explicit AppReader(QObject* parent = 0);
 
     void readPackage(QString appPackage);
 

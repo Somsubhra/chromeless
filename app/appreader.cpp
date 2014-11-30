@@ -8,7 +8,8 @@
 // Other includes
 #include "appreader.h"
 
-AppReader::AppReader()
+AppReader::AppReader(QObject *parent)
+    : QObject(parent)
 {
     tempDir = new QTemporaryDir();
 }
