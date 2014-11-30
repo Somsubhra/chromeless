@@ -9,6 +9,8 @@ AppWindow::AppWindow(QWidget *parent) :
 
     appReader = new AppReader();
 
+    propReader = new PropertyReader();
+
     appView = new AppView(this);
     this->setCentralWidget(appView);
 
@@ -19,6 +21,9 @@ void AppWindow::runAppPackage(QString appPackage)
 {
     // Extract the app package in a tmp location
     appReader->readPackage(appPackage);
+
+    // Read the app properties
+    propReader->readProperties(appReader->appProps());
 
     // Pass the tmp location and render the extracted package
     appView->setAppRoot(appReader->appRoot());

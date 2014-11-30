@@ -53,6 +53,11 @@ QString AppReader::appRoot()
     return QDir(tempDir->path()).absoluteFilePath("index.html");
 }
 
+QString AppReader::appProps()
+{
+    return QDir(tempDir->path()).absoluteFilePath("app.json");
+}
+
 void AppReader::cleanUp()
 {
     tempDir->remove();

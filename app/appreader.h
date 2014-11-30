@@ -15,6 +15,8 @@ public:
 
     QString appRoot();
 
+    QString appProps();
+
 private:
     QTemporaryDir* tempDir;
 

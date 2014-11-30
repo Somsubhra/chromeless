@@ -7,6 +7,7 @@
 // Other includes
 #include "appview.h"
 #include "appreader.h"
+#include "propertyreader.h"
 
 class AppWindow : public QMainWindow
 {
@@ -19,6 +20,7 @@ public:
 private:
     AppView* appView;
     AppReader* appReader;
+    PropertyReader* propReader;
 
 signals:
 

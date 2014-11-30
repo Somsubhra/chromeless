@@ -9,6 +9,8 @@ class PropertyReader : public QObject
 public:
     explicit PropertyReader(QObject *parent = 0);
 
+    void readProperties(QString propFile);
+
 signals:
 
 public slots:
