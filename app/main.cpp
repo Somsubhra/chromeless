@@ -13,22 +13,31 @@ int main(int argc, char** argv) {
     ControlPanel panel;
     AppWindow appWindow;
 
-    switch(argc) {
-        // Open the control panel
-        case 1:
-            panel.show();
-            break;
+    QString appPackage = app.appPackage();
 
-        // Run the application package
-        case 2:
-            appWindow.show();
-            appWindow.runAppPackage(argv[1]);
-            break;
+    // Not a file open event
+    if(appPackage == "") {
+        switch(argc) {
+            // Open the control panel
+            case 1:
+                panel.show();
+                break;
 
-        // Other options
-        default:
-            panel.show();
-            break;
+            // Run the application package
+            case 2:
+                appWindow.show();
+                appWindow.runAppPackage(argv[1]);
+                break;
+
+            // Other options
+            default:
+                panel.show();
+                break;
+        }
+    } else {
+        // A file open event
+        appWindow.show();
+        appWindow.runAppPackage(appPackage);
     }
 
     return app.exec();
