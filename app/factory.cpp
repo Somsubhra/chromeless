@@ -25,9 +25,9 @@ Factory::Factory(int argc, char **argv, QString appPackage, QObject *parent) :
 
     // Not a file open event
     if(appPackage == "") {
-        appWindow = new AppWindow(argv[1]);
 
         if(argc == 2) {
+            appWindow = new AppWindow(argv[1]);
             appWindow->show();
         } else {
             controlPanel->show();

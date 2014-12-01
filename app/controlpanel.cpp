@@ -15,12 +15,36 @@
  *  along with this program; if not, write to the Free Software
  */
 
+// Qt includes
+#include <QMenuBar>
+
 // Other includes
 #include "controlpanel.h"
 
 ControlPanel::ControlPanel(QWidget *parent) :
     QMainWindow(parent)
 {
-    this->setWindowState(Qt::WindowMaximized);
-    this->setWindowTitle(tr("Control Panel"));
+    this->setMaximumSize(640, 480);
+    this->setMinimumSize(320, 240);
+    this->setWindowTitle(tr("Lils Control Panel"));
+
+    QMenu* appMenu = menuBar()->addMenu(tr("App"));
+
+    QAction* openAppAction = new QAction(tr("Open App"), appMenu);
+    openAppAction->setShortcut(QKeySequence("Ctrl+O"));
+    appMenu->addAction(openAppAction);
+
+    QAction* exitAction = new QAction(tr("Exit"), appMenu);
+    exitAction->setShortcut(QKeySequence("Ctrl+X"));
+    appMenu->addAction(exitAction);
+
+    QMenu* aboutMenu = menuBar()->addMenu(tr("About"));
+
+    QAction* aboutAction = new QAction(tr("About"), aboutMenu);
+    aboutAction->setShortcut(QKeySequence("Ctrl+A"));
+    aboutMenu->addAction(aboutAction);
+
+    QAction* licenseAction = new QAction(tr("Licenses"), aboutMenu);
+    licenseAction->setShortcut(QKeySequence("Ctrl+L"));
+    aboutMenu->addAction(licenseAction);
 }
