@@ -13,9 +13,7 @@ class AppWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-    explicit AppWindow(QWidget *parent = 0);
-
-    void runAppPackage(QString appPackage);
+    explicit AppWindow(QString appPackage, QWidget *parent = 0);
 
 private:
     void applyAppProperties();

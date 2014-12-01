@@ -1,32 +1,21 @@
 // Other includes
 #include "appwindow.h"
 
-AppWindow::AppWindow(QWidget *parent) :
+AppWindow::AppWindow(QString appPackage, QWidget *parent) :
     QMainWindow(parent)
 {
     appReader = new AppReader();
+    appReader->readPackage(appPackage);
 
     propReader = new PropertyReader();
+    propReader->readProperties(appReader->appProps());
+    this->applyAppProperties();
 
     appView = new AppView(this);
+    appView->setAppRoot(appReader->appRoot());
     this->setCentralWidget(appView);
 
     connect(this, SIGNAL(destroyed()), appReader, SLOT(cleanUp()));
-}
-
-void AppWindow::runAppPackage(QString appPackage)
-{
-    // Extract the app package in a tmp location
-    appReader->readPackage(appPackage);
-
-    // Read the app properties
-    propReader->readProperties(appReader->appProps());
-
-    // Apply all the properties to the application
-    this->applyAppProperties();
-
-    // Pass the tmp location and render the extracted package
-    appView->setAppRoot(appReader->appRoot());
 }
 
 void AppWindow::applyAppProperties()
