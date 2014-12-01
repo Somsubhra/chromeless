@@ -26,6 +26,7 @@ public:
     int windowFixedWidth();
     int windowFixedHeight();
     bool windowMaximized();
+    bool windowHideTitleBar();
 
     // Getters for the flags
     bool isAppVersionSet();
@@ -40,6 +41,7 @@ public:
     bool isWindowFixedWidthSet();
     bool isWindowFixedHeightSet();
     bool isWindowMaximizedSet();
+    bool isWindowHideTitleBarSet();
 
 private:
     QString _appVersion;
@@ -56,6 +58,7 @@ private:
     int _winFixedWidth;
     int _winFixedHeight;
     bool _winMaximized;
+    bool _winHideTitleBar;
 
     // Set/Unset Flags
     bool _isAppVersionSet;
@@ -70,6 +73,7 @@ private:
     bool _isWinFixedWidthSet;
     bool _isWinFixedHeightSet;
     bool _isWinMaximizedSet;
+    bool _isWinHideTitleBarSet;
 
 signals:
 

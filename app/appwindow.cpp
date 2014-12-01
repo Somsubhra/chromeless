@@ -52,4 +52,10 @@ void AppWindow::applyAppProperties()
             this->setWindowState(Qt::WindowMaximized);
         }
     }
+
+    if(propReader->isWindowHideTitleBarSet()) {
+        if(propReader->windowHideTitleBar()) {
+            this->setWindowFlags(Qt::FramelessWindowHint);
+        }
+    }
 }
