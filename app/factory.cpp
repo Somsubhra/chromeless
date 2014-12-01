@@ -18,23 +18,23 @@
 // Other includes
 #include "factory.h"
 
-Factory::Factory(int argc, char **argv, QString appPackage, QObject *parent) :
+Factory::Factory(Application* app, int argc, char **argv, QString appPackage, QObject *parent) :
     QObject(parent)
 {
     // Not a file open event
     if(appPackage == "") {
 
         if(argc == 2) {
-            appWindow = new AppWindow(argv[1]);
+            appWindow = new AppWindow(app, argv[1]);
             appWindow->show();
         } else {
-            controlPanel = new ControlPanel();
+            controlPanel = new ControlPanel(app);
             controlPanel->show();
         }
 
     } else {
         // A file open event
-        appWindow = new AppWindow(appPackage);
+        appWindow = new AppWindow(app, appPackage);
         appWindow->show();
     }
 }

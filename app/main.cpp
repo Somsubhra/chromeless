@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
 
     QString appPackage = app.appPackage();
 
-    Factory(argc, argv, appPackage);
+    Factory(&app, argc, argv, appPackage);
 
     return app.exec();
 }

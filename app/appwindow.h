@@ -25,12 +25,13 @@
 #include "appview.h"
 #include "appreader.h"
 #include "propertyreader.h"
+#include "application.h"
 
 class AppWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-    explicit AppWindow(QString appPackage, QWidget *parent = 0);
+    explicit AppWindow(Application* app = 0, QString appPackage = "", QWidget *parent = 0);
 
 private:
     void applyAppProperties();

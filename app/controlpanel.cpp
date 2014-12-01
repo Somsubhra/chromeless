@@ -25,9 +25,11 @@
 #include "controlpanel.h"
 #include "appwindow.h"
 
-ControlPanel::ControlPanel(QWidget *parent) :
+ControlPanel::ControlPanel(Application *app, QWidget *parent) :
     QMainWindow(parent)
 {
+    application = app;
+
     this->setFixedSize(320, 320);
     this->setWindowTitle(tr("Lils Control Panel"));
 
@@ -65,7 +67,7 @@ ControlPanel::ControlPanel(QWidget *parent) :
 void ControlPanel::runAppPressed()
 {
     QString appPackage = QFileDialog::getOpenFileName(this, "Select App Package", QDir::currentPath(), tr("Lils App (*.lx)"));
-    AppWindow* window = new AppWindow(appPackage);
+    AppWindow* window = new AppWindow(application, appPackage);
     window->show();
 }
 

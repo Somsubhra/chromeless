@@ -21,13 +21,19 @@
 // Qt includes
 #include <QMainWindow>
 
+// Other includes
+#include "application.h"
+
 class ControlPanel : public QMainWindow
 {
     Q_OBJECT
 public:
-    explicit ControlPanel(QWidget *parent = 0);
+    explicit ControlPanel(Application* app, QWidget *parent = 0);
 
 signals:
+
+private:
+    Application* application;
 
 public slots:
     void runAppPressed();

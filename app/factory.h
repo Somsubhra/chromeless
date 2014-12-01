@@ -22,6 +22,7 @@
 #include <QObject>
 
 // Other includes
+#include "application.h"
 #include "appwindow.h"
 #include "controlpanel.h"
 
@@ -29,7 +30,7 @@ class Factory : public QObject
 {
     Q_OBJECT
 public:
-    explicit Factory(int argc = 0, char** argv = 0, QString appPackage = "", QObject *parent = 0);
+    explicit Factory(Application* app = 0, int argc = 0, char** argv = 0, QString appPackage = "", QObject *parent = 0);
 
 private:
     AppWindow* appWindow;

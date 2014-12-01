@@ -18,7 +18,7 @@
 // Other includes
 #include "appwindow.h"
 
-AppWindow::AppWindow(QString appPackage, QWidget *parent) :
+AppWindow::AppWindow(Application *app, QString appPackage, QWidget *parent) :
     QMainWindow(parent)
 {
     appReader = new AppReader();
@@ -32,7 +32,7 @@ AppWindow::AppWindow(QString appPackage, QWidget *parent) :
     appView->setAppRoot(appReader->appRoot());
     this->setCentralWidget(appView);
 
-    connect(this, SIGNAL(destroyed()), appReader, SLOT(cleanUp()));
+    connect(app, SIGNAL(aboutToQuit()), appReader, SLOT(cleanUp()));
 }
 
 void AppWindow::applyAppProperties()
