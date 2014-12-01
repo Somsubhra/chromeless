@@ -19,9 +19,11 @@
 #include <QMenuBar>
 #include <QStyle>
 #include <QToolBar>
+#include <QFileDialog>
 
 // Other includes
 #include "controlpanel.h"
+#include "appwindow.h"
 
 ControlPanel::ControlPanel(QWidget *parent) :
     QMainWindow(parent)
@@ -62,7 +64,9 @@ ControlPanel::ControlPanel(QWidget *parent) :
 
 void ControlPanel::runAppPressed()
 {
-    emit runAppTriggered();
+    QString appPackage = QFileDialog::getOpenFileName(this, "Select App Package", QDir::currentPath(), tr("Lils App (*.lx)"));
+    AppWindow* window = new AppWindow(appPackage);
+    window->show();
 }
 
 void ControlPanel::licensePressed()

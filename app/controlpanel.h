@@ -28,7 +28,6 @@ public:
     explicit ControlPanel(QWidget *parent = 0);
 
 signals:
-    void runAppTriggered();
 
 public slots:
     void runAppPressed();

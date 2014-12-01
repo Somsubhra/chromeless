@@ -21,8 +21,6 @@
 Factory::Factory(int argc, char **argv, QString appPackage, QObject *parent) :
     QObject(parent)
 {
-    controlPanel = new ControlPanel();
-
     // Not a file open event
     if(appPackage == "") {
 
@@ -30,6 +28,7 @@ Factory::Factory(int argc, char **argv, QString appPackage, QObject *parent) :
             appWindow = new AppWindow(argv[1]);
             appWindow->show();
         } else {
+            controlPanel = new ControlPanel();
             controlPanel->show();
         }
 
@@ -38,5 +37,4 @@ Factory::Factory(int argc, char **argv, QString appPackage, QObject *parent) :
         appWindow = new AppWindow(appPackage);
         appWindow->show();
     }
-
 }
