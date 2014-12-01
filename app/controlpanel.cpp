@@ -32,6 +32,7 @@ ControlPanel::ControlPanel(QWidget *parent) :
     QMenu* appMenu = menuBar()->addMenu(tr("App"));
 
     QAction* runAppAction = new QAction(style()->standardIcon(QStyle::SP_MediaPlay), tr("Run App"), appMenu);
+    connect(runAppAction, SIGNAL(triggered()), this, SLOT(runAppPressed()));
     runAppAction->setShortcut(QKeySequence("Ctrl+O"));
     appMenu->addAction(runAppAction);
 
@@ -43,10 +44,12 @@ ControlPanel::ControlPanel(QWidget *parent) :
     QMenu* aboutMenu = menuBar()->addMenu(tr("About"));
 
     QAction* aboutAction = new QAction(style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("About"), aboutMenu);
+    connect(aboutAction, SIGNAL(triggered()), this, SLOT(aboutPressed()));
     aboutAction->setShortcut(QKeySequence("Ctrl+A"));
     aboutMenu->addAction(aboutAction);
 
     QAction* licenseAction = new QAction(style()->standardIcon(QStyle::SP_FileDialogDetailedView), tr("Licenses"), aboutMenu);
+    connect(licenseAction, SIGNAL(triggered()), this, SLOT(licensePressed()));
     licenseAction->setShortcut(QKeySequence("Ctrl+L"));
     aboutMenu->addAction(licenseAction);
 
@@ -55,4 +58,19 @@ ControlPanel::ControlPanel(QWidget *parent) :
     mainWidget->addAction(runAppAction);
 
     this->setCentralWidget(mainWidget);
+}
+
+void ControlPanel::runAppPressed()
+{
+    emit runAppTriggered();
+}
+
+void ControlPanel::licensePressed()
+{
+
+}
+
+void ControlPanel::aboutPressed()
+{
+
 }

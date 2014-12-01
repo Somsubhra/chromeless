@@ -28,9 +28,14 @@ public:
     explicit ControlPanel(QWidget *parent = 0);
 
 signals:
+    void runAppTriggered();
 
 public slots:
+    void runAppPressed();
 
+private slots:
+    void licensePressed();
+    void aboutPressed();
 };
 
 #endif // CONTROLPANEL_H
