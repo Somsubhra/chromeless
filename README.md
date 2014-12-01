@@ -1,7 +1,7 @@
 Lils
 ====
 
-The Lils Runtime Environment runs packaged HTML5 apps(.lx packages) on the desktop(Linux, Windows, OSX, etc.). With the runtime environment installed, you can simply run the app by running the .lx file.
+The Lils Runtime Environment runs packaged HTML5 apps(.lx packages) on the desktop(Linux, Windows, OSX, etc.). With the runtime environment installed, you can run the app by simply running the .lx file.
 
 ###.lx app packages
 .lx app packages are simply HTML5/CSS3/Javascript applications packaged using Zip format, but having .lx extension. Each app package has an app.json file which specifies the application properties.
@@ -37,3 +37,47 @@ Porting existing HTML5 applications is very simple involving following steps:
   }
 }
 ```
+### Lils Runtime Build Instructions
+
+##### Dependencies
+* Qt5
+
+##### Getting the source code
+* Clone the repository.
+```sh
+git clone https://github.com/Somsubhra/Lils.git
+```
+##### Build Steps
+* Create a build directory.
+```sh
+mkdir build
+cd build
+```
+
+* Configure project.
+```sh
+qmake /path/to/Lils.pro
+```
+
+* Compile.
+```sh
+make -j5
+```
+
+* Simpler Way: Open Lils.pro using QtCreator and Build from IDE itself.
+
+##### Run Steps
+###### Command Line
+* Run without arguments to open the Control Panel.
+```sh
+/path/to/app
+```
+
+* Run with app package name as argument to run the app.
+```sh
+/path/to/app myapp.lx
+```
+
+###### From the GUI
+* Running app executable will open control panel.
+* Running a .lx app package will run the app.
