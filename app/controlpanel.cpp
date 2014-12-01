@@ -17,6 +17,7 @@
 
 // Qt includes
 #include <QMenuBar>
+#include <QStyle>
 
 // Other includes
 #include "controlpanel.h"
@@ -24,28 +25,27 @@
 ControlPanel::ControlPanel(QWidget *parent) :
     QMainWindow(parent)
 {
-    this->setMaximumSize(640, 480);
-    this->setMinimumSize(320, 240);
+    this->setFixedSize(320, 240);
     this->setWindowTitle(tr("Lils Control Panel"));
 
     QMenu* appMenu = menuBar()->addMenu(tr("App"));
 
-    QAction* openAppAction = new QAction(tr("Open App"), appMenu);
-    openAppAction->setShortcut(QKeySequence("Ctrl+O"));
-    appMenu->addAction(openAppAction);
+    QAction* runAppAction = new QAction(style()->standardIcon(QStyle::SP_MediaPlay), tr("Run App"), appMenu);
+    runAppAction->setShortcut(QKeySequence("Ctrl+O"));
+    appMenu->addAction(runAppAction);
 
-    QAction* exitAction = new QAction(tr("Exit"), appMenu);
+    QAction* exitAction = new QAction(style()->standardIcon(QStyle::SP_DialogCloseButton), tr("Exit"), appMenu);
     connect(exitAction, SIGNAL(triggered()), this, SLOT(close()));
     exitAction->setShortcut(QKeySequence("Ctrl+X"));
     appMenu->addAction(exitAction);
 
     QMenu* aboutMenu = menuBar()->addMenu(tr("About"));
 
-    QAction* aboutAction = new QAction(tr("About"), aboutMenu);
+    QAction* aboutAction = new QAction(style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("About"), aboutMenu);
     aboutAction->setShortcut(QKeySequence("Ctrl+A"));
     aboutMenu->addAction(aboutAction);
 
-    QAction* licenseAction = new QAction(tr("Licenses"), aboutMenu);
+    QAction* licenseAction = new QAction(style()->standardIcon(QStyle::SP_FileDialogDetailedView), tr("Licenses"), aboutMenu);
     licenseAction->setShortcut(QKeySequence("Ctrl+L"));
     aboutMenu->addAction(licenseAction);
 }
