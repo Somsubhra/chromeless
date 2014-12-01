@@ -18,6 +18,7 @@
 // Qt includes
 #include <QMenuBar>
 #include <QStyle>
+#include <QToolBar>
 
 // Other includes
 #include "controlpanel.h"
@@ -25,7 +26,7 @@
 ControlPanel::ControlPanel(QWidget *parent) :
     QMainWindow(parent)
 {
-    this->setFixedSize(320, 240);
+    this->setFixedSize(320, 320);
     this->setWindowTitle(tr("Lils Control Panel"));
 
     QMenu* appMenu = menuBar()->addMenu(tr("App"));
@@ -48,4 +49,10 @@ ControlPanel::ControlPanel(QWidget *parent) :
     QAction* licenseAction = new QAction(style()->standardIcon(QStyle::SP_FileDialogDetailedView), tr("Licenses"), aboutMenu);
     licenseAction->setShortcut(QKeySequence("Ctrl+L"));
     aboutMenu->addAction(licenseAction);
+
+    QToolBar* mainWidget = new QToolBar(this);
+    mainWidget->setIconSize(QSize(320, 320));
+    mainWidget->addAction(runAppAction);
+
+    this->setCentralWidget(mainWidget);
 }
