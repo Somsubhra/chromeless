@@ -12,7 +12,8 @@ SOURCES += \
     appview.cpp \
     appreader.cpp \
     application.cpp \
-    propertyreader.cpp
+    propertyreader.cpp \
+    factory.cpp
 
 HEADERS += \
     controlpanel.h \
@@ -20,7 +21,8 @@ HEADERS += \
     appview.h \
     appreader.h \
     application.h \
-    propertyreader.h
+    propertyreader.h \
+    factory.h
 
 # --- QuaZip ---
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../third-party/quazip/release/ -lquazip
