@@ -35,6 +35,7 @@ ControlPanel::ControlPanel(QWidget *parent) :
     appMenu->addAction(openAppAction);
 
     QAction* exitAction = new QAction(tr("Exit"), appMenu);
+    connect(exitAction, SIGNAL(triggered()), this, SLOT(close()));
     exitAction->setShortcut(QKeySequence("Ctrl+X"));
     appMenu->addAction(exitAction);
 
