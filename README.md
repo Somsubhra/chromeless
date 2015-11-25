@@ -1,7 +1,7 @@
-Lils
+Chromeless
 ====
 
-The Lils Runtime Environment runs packaged HTML5 apps(.lx packages) on the desktop(Linux, Windows, OSX, etc.). With the runtime environment installed, you can run the app by simply running the .lx file.
+Chromeless runs packaged HTML5 apps(.lx packages) on the desktop(Linux, Windows, OSX, etc.). With the runtime environment installed, you can run the app by simply running the .lx file.
 
 ###.lx app packages
 .lx app packages are simply HTML5/CSS3/Javascript applications packaged using Zip format, but having .lx extension. Each app package has an app.json file which specifies the application properties.
@@ -37,7 +37,7 @@ Porting existing HTML5 applications is very simple involving following steps:
   }
 }
 ```
-### Lils Runtime Build Instructions
+### Chromeless Build Instructions
 
 ##### Dependencies
 * Qt5
@@ -45,7 +45,7 @@ Porting existing HTML5 applications is very simple involving following steps:
 ##### Getting the source code
 * Clone the repository.
 ```sh
-git clone https://github.com/Somsubhra/Lils.git
+git clone https://github.com/Somsubhra/chromeless.git
 ```
 ##### Build Steps
 * Create a build directory.
